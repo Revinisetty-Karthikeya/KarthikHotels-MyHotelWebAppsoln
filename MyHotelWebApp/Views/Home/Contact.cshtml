@@ -1,0 +1,55 @@
+﻿@*@{
+        ViewBag.Title = "Contact";
+    }
+
+    <h2>Contact</h2>
+    <p> Created by Karthikeya Revinisetty <br />
+        Email : karthik@gmail.com<br />
+        Mobile : 8237948729</p>*@
+
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        main {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <main aria-labelledby="title">
+        <h2 id="title">@ViewBag.Title.</h2>
+        <p>
+            Created by <strong>Karthikeya Revinisetty</strong> <br />
+            Email : <a href="mailto:karthik@gmail.com">karthik@gmail.com</a><br />
+            Mobile : <a href="tel:8237948729">8237948729</a>
+        </p>
+    </main>
+</body>
+</html>

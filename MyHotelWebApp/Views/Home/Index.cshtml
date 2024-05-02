@@ -1,0 +1,118 @@
+﻿@*@{
+        ViewBag.Title = "Index";
+
+    }
+
+    <h1 id="title">Karthik Hotels</h1>
+
+    <aside style="float:right;width:40%;padding:10px;margin:10px;border:2px solid red;">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            <table style="width:100%;" border="1">
+                <tr>
+                    <th>Login Id</th>
+                    <td>@Html.TextBox("LoginId")</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>@Html.Password("Password")</td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td>
+                        @Html.DropDownList("Role",
+                                                      new List<SelectListItem>() {
+                        new SelectListItem(){Text="admin", Value="admin"},
+                        new SelectListItem(){Text="Customer", Value="Customer"},
+                                      }, "Select..")
+                    </td>
+                </tr>
+                <tr>
+                    <th>New User? @Html.ActionLink("Sign-Up", "Register", "Home")</th>
+                    <td><button type="submit">Sign In</button></td>
+                </tr>
+            </table>
+        }
+    </aside>
+    <section>
+    </section>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+        }
+
+        aside {
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Karthik Hotels</h1>
+    <img src="~/Content/Pics/hotel.jpg" height="400" width="800" />
+
+
+    <aside class="float-right p-3 mb-2 bg-light text-dark">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                <label for="LoginId">Login Id</label>
+                @Html.TextBox("LoginId", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                @Html.Password("Password", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="Role">Role</label>
+                @Html.DropDownList("Role",
+                              new List<SelectListItem>() {
+                        new SelectListItem(){Text="admin", Value="admin"},
+                        new SelectListItem(){Text="Customer", Value="Customer"},
+                              }, "Select..", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="NewUser">New User?</label>
+                @Html.ActionLink("Sign-Up", "Register", "Home")
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+        }
+    </aside>
+    <section>
+    </section>
+</body>
+</html>

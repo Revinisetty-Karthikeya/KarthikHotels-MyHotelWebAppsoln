@@ -1,0 +1,149 @@
+﻿@*@model IEnumerable<MyHotelWebApp.Models.Booking>
+
+    @{
+        ViewBag.Title = "CustomerBookingIndex";
+        Layout = "~/Views/Shared/CustomerLayout.cshtml";
+    }
+
+    <h2>CustomerBookingIndex</h2>*@
+
+
+@*<p>
+        @Html.ActionLink("Create New", "CustomerBookingCreate")
+    </p>*@
+
+
+@*<table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Room.HotelId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @{MyHotelWebApp.Models.MyHotelDbContext context = new MyHotelWebApp.Models.MyHotelDbContext();
+                MyHotelWebApp.Models.Room room = context.Rooms.Find(item.RoomId);
+                string HotelId = room.HotelId;
+                }
+
+            <td>
+                  @HotelId
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "CustomerBookingDetails", new { id=item.BookingId }) |
+                @Html.ActionLink("Delete", "CustomerBookingDelete", new { id=item.BookingId })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+@model IEnumerable<MyHotelWebApp.Models.Booking>
+
+@{
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        CustomerBookingIndex
+    </h1>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room.HotelId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{MyHotelWebApp.Models.MyHotelDbContext context = new MyHotelWebApp.Models.MyHotelDbContext();
+                    MyHotelWebApp.Models.Room room = context.Rooms.Find(item.RoomId);
+                    string HotelId = room.HotelId;
+                }
+
+                <td>
+                    @Html.DisplayFor(model => item.BookingId)
+                </td>
+
+                <td>
+                    @HotelId
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "CustomerBookingDetails", new { id = item.BookingId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "CustomerBookingDelete", new { id = item.BookingId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

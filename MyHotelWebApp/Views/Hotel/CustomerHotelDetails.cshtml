@@ -1,0 +1,116 @@
+﻿@*@model MyHotelWebApp.Models.Hotel
+
+    @{
+        ViewBag.Title = "CustomerHotelDetails";
+        Layout = "~/Views/Shared/CustomerLayout.cshtml";
+    }
+
+    <h2>CustomerHotelDetails</h2>
+
+    <div>
+        <h4>Hotel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelPhone)
+            </dd>
+
+        </dl>
+    </div>
+    <p>*@
+
+@*@Html.ActionLink("Edit", "Edit", new { id = Model.HotelID },null) |*@
+
+@*@Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+
+
+
+@model MyHotelWebApp.Models.Hotel
+
+@{
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        CustomerHotelDetails
+    </h1>
+
+    <div>
+        <h4>Hotel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HotelPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HotelPhone)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "CustomerIndex", null, new { @class = "btn btn-primary" })
+    </p>
+</body>
+</html>
+

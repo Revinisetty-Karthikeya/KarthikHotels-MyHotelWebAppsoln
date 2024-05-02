@@ -1,0 +1,157 @@
+﻿@*@model IEnumerable<MyHotelWebApp.Models.Booking>
+
+        @{
+            ViewBag.Title = "Index";
+            Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+        }
+
+        <h2>Index</h2>
+
+    <p>
+            @Html.ActionLink("Create New", "Create","Booking")
+        </p>
+
+    <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room.HotelId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CheckIn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CheckOut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                @{ MyHotelWebApp.Models.MyHotelDbContext context = new MyHotelWebApp.Models.MyHotelDbContext();
+                    MyHotelWebApp.Models.Customer customer = context.Customers.Find(item.CustomerId);
+                    string name = customer.CustomerName;
+                }
+                <td>
+                       @name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.HotelId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookingId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BookingId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookingId })
+                </td>
+            </tr>
+        }
+
+        </table>*@
+
+
+
+
+@model IEnumerable<MyHotelWebApp.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        Index
+    </h1>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", "Booking", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room.HotelId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{ MyHotelWebApp.Models.MyHotelDbContext context = new MyHotelWebApp.Models.MyHotelDbContext();
+                    MyHotelWebApp.Models.Customer customer = context.Customers.Find(item.CustomerId);
+                    string name = customer.CustomerName;
+                }
+                <td>
+                    @name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.HotelId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.BookingId }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.BookingId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookingId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

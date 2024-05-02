@@ -1,0 +1,166 @@
+﻿@*@model IEnumerable<MyHotelWebApp.Models.Room>
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roomtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPriced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomAvailability)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @{string HotelID = item.HotelId; }
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roomtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomPriced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomAvailability)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","Room" ,new { id=item.RoomId },null) |
+                @Html.ActionLink("Details", "Details","Room" ,new { id=item.RoomId },null) |*@
+
+@*@Html.ActionLink("Delete", "Delete","Room", new { id=item.RoomId },null)*@
+
+
+@*</td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+@model IEnumerable<MyHotelWebApp.Models.Room>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        aside {
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        @*<img src="~/Content/Pics/User.jpg" class="rounded-circle mx-auto d-block" alt="User" style="width: 100px; height: 100px;" />*@
+        Index
+    </h1>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roomtype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPriced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomAvailability)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{string HotelID = item.HotelId; }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.HotelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Roomtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomPriced)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomAvailability)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RoomId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RoomId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RoomId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

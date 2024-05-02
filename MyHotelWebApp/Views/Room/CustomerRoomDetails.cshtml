@@ -1,0 +1,159 @@
+﻿@*@model MyHotelWebApp.Models.Room
+
+    @{
+        ViewBag.Title = "CustomerRoomDetails";
+        Layout = "~/Views/Shared/CustomerLayout.cshtml";
+    }
+
+    <h2>RoomDetails</h2>
+
+    <div>
+        <h4>Room</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hotel.HotelName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Roomtype)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Roomtype)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomPriced)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomPriced)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomAvailability)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomAvailability)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Book", "CustomerBookingCreate", "Booking", new { id = Model.RoomId }, new { @class = "btn btn-primary" })
+
+    </p>*@
+
+
+@model MyHotelWebApp.Models.Room
+
+@{
+    ViewBag.Title = "CustomerRoomDetails";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        aside {
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        @*<img src="~/Content/Pics/User.jpg" class="rounded-circle mx-auto d-block" alt="User" style="width: 100px; height: 100px;" />*@
+        RoomDetails
+    </h1>
+
+    <div>
+        <h4>Room</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Hotel.HotelName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hotel.HotelName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Roomtype)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Roomtype)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomPriced)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomPriced)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomAvailability)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomAvailability)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Book", "CustomerBookingCreate", "Booking", new { id = Model.RoomId }, new { @class = "btn btn-primary" })
+    </p>
+</body>
+</html>
+
+
+

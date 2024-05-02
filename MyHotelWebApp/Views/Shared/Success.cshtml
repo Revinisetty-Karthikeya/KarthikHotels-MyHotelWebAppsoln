@@ -1,0 +1,70 @@
+﻿@*@{
+        ViewBag.Title = "Success";
+        Layout = "~/Views/Shared/CustomerLayout.cshtml";
+
+    }
+
+    <h2>Success</h2>
+    <hr />
+    <img src="~/Content/Pics/success.jpg" height="60" width="60" />
+    @ViewBag.Message*@
+
+@{
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        aside {
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        <img src="~/Content/Pics/success.jpg" alt="Success" style="width: 100px; height: 100px;" />
+        Success
+    </h1>
+    <hr />
+    @ViewBag.Message
+</body>
+</html>

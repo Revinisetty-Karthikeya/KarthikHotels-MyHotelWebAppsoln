@@ -1,0 +1,133 @@
+﻿@*@model IEnumerable<MyHotelWebApp.Models.Hotel>
+
+    @{
+        ViewBag.Title = "CustomerIndex";
+        Layout = "~/Views/Shared/CustomerLayout.cshtml";
+
+    }
+
+    <h2>Hotels</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelPhone)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HotelPhone)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "CustomerHotelDetails", "Hotel", new { id = item.HotelID }, null) |
+                @Html.ActionLink("Rooms", "CustomerRoomIndex", "Room", new { id = item.HotelID }, new { @class = "btn btn-primary" })*@
+
+@*@Html.ActionLink("Book", "CustomerHotelDetails", "Hotel", new { id = item.HotelID }, null)*@
+
+
+@*</td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+
+@model IEnumerable<MyHotelWebApp.Models.Hotel>
+
+@{
+    ViewBag.Title = "CustomerIndex";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        Hotels
+    </h1>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelPhone)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelPhone)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "CustomerHotelDetails", "Hotel", new { id = item.HotelID }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Rooms", "CustomerRoomIndex", "Room", new { id = item.HotelID }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

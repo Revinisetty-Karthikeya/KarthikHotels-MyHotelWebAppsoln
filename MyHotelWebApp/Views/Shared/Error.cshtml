@@ -1,0 +1,66 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Error</title>
+    </head>
+    <body>
+        <hgroup>
+            <h1>Error.</h1>
+            <h2>An error occurred while processing your request.</h2>
+        </hgroup>
+    </body>
+    </html>*@
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+        <img src="~/Content/Pics/Error.jpg" height="60" width="60" />-->
+@*@ViewBag.Message*@
+<!--</hgroup>
+</body>
+</html>-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #title {
+            color: #007BFF;
+            text-align: center;
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">
+        <img src="~/Content/Pics/Error.jpg" alt="Error" style="width: 100px; height: 100px;" />
+        Error
+    </h1>
+    <h2>An error occurred while processing your request.</h2>
+    @ViewBag.Message
+</body>
+</html>
+
